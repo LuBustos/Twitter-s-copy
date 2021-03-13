@@ -5,12 +5,17 @@ import (
 	"net/http"
 	"os"
 
+	"github.com/LuBustos/Twitter-s-copy/middleware"
+	"github.com/LuBustos/Twitter-s-copy/routers"
 	"github.com/gorilla/mux"
 	"github.com/rs/cors"
 )
 
+//Handlers seteo mi handler y a escuchar el servidor
 func Handlers() {
 	router := mux.NewRouter() //
+
+	router.HandleFunc("/registro", middleware.BDCheck(routers.Registro)).Methods("POST")
 
 	PORT := os.Getenv("PORT")
 	if PORT == "" {
