@@ -26,7 +26,7 @@ func Registry(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	_, encontrado, _ := bd.AlreadyUserCheck(t.Email)
+	_, encontrado, _ := bd.UserAlreadyExistCheck(t.Email)
 	if encontrado == true {
 		http.Error(w, "Ya existe un usuario registrado con ese email", 400)
 		return
