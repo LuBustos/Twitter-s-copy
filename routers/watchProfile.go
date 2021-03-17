@@ -9,7 +9,7 @@ import (
 
 //WatchProfile recibe el ID de la url, lo busca en la bd y lo trae
 func WatchProfile(w http.ResponseWriter, r *http.Request) {
-	ID := r.URL.Query().Get("id")
+	ID := r.URL.Query().Get("id") //Lo captura de la url y se queda con el valor del ID
 	if len(ID) < 1 {
 		http.Error(w, "Debe enviar el parametro ID", http.StatusBadRequest)
 		return
