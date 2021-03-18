@@ -34,6 +34,9 @@ func Handlers() {
 	router.HandleFunc("/bajaRelacion", middleware.BDCheck(middleware.JwtCheck(routers.RemoveRelationship))).Methods("DELETE")
 	router.HandleFunc("/getRelacion", middleware.BDCheck(middleware.JwtCheck(routers.GetAnswerRelationship))).Methods("GET")
 
+	router.HandleFunc("/listUsuarios", middleware.BDCheck(middleware.JwtCheck(routers.UserList))).Methods("GET")
+	router.HandleFunc("/leoTweetsSeguidores", middleware.BDCheck(middleware.JwtCheck(routers.ReadRelationshipTweets))).Methods("GET")
+
 	PORT := os.Getenv("PORT")
 	if PORT == "" {
 		PORT = "8080"
