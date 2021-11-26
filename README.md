@@ -1,1 +1,2 @@
-# Twitter-s-copy
+# Twitter-s-copy with GO
+Only backend
